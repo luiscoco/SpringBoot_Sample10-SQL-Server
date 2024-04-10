@@ -5,7 +5,21 @@ For more detail, please visit:
 
 ## 1. Run a SQL Server docker container
 
+We open a command prompt window and run the following command
+
+```
+docker run ^
+  -e "ACCEPT_EULA=Y" ^
+  -e "MSSQL_SA_PASSWORD=Luiscoco123456" ^
+  -p 1433:1433 ^
+  -d mcr.microsoft.com/mssql/server:2022-latest
+```
+
 ## 2. Connect to the SQL Server container from SSMS
+
+Download and install SQL Server Management Studio (SSMS) from this site: https://learn.microsoft.com/es-es/sql/ssms/download-sql-server-management-studio-ssms
+
+
 
 ## 3. Source Code explanation
 
