@@ -5,6 +5,8 @@ For more detail, please visit:
 
 ## 1. Run a SQL Server docker container
 
+It is mandatory to **run Docker Desktop** before pulling and running the SSMS docker container
+
 We open a command prompt window and run the following command
 
 ```
