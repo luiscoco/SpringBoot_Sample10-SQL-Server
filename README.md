@@ -19,6 +19,7 @@ docker run ^
 
 Download and install SQL Server Management Studio (SSMS) from this site: https://learn.microsoft.com/es-es/sql/ssms/download-sql-server-management-studio-ssms
 
+![image](https://github.com/luiscoco/spring-boot-sql-server-master/assets/32194879/48ac3b8a-9a95-41b3-a446-942f73739d53)
 
 
 ## 3. Source Code explanation
