@@ -398,10 +398,84 @@ public class TutorialController {
 
 We configure the database connection string and Swagger options:
 
+```
+spring.datasource.url= jdbc:sqlserver://localhost:1433;encrypt=true;trustServerCertificate=true;databaseName=bezkoder_db
+spring.datasource.username= sa
+spring.datasource.password= Luiscoco123456
 
-### 3.8. 
+spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.SQLServerDialect
+spring.jpa.hibernate.ddl-auto= update
 
+#springdoc.api-docs.enabled=false
+#springdoc.swagger-ui.enabled=false
+#springdoc.packages-to-scan=com.bezkoder.spring.swagger.controller
+springdoc.swagger-ui.path=/bezkoder-documentation
+springdoc.api-docs.path=/bezkoder-api-docs
+#springdoc.swagger-ui.operationsSorter=method
+#springdoc.swagger-ui.tagsSorter=alpha
+springdoc.swagger-ui.tryItOutEnabled=true
+springdoc.swagger-ui.filter=true
 
+bezkoder.openapi.dev-url=http://localhost:8080
+bezkoder.openapi.prod-url=https://bezkoder-api.com
+```
+
+### 3.8. Swagger configuration
+
+**OpenAPIConfig.java**
+
+```java
+package com.bezkoder.spring.mssql.config;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Contact;
+import io.swagger.v3.oas.models.info.Info;
+import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.servers.Server;
+
+@Configuration
+public class OpenAPIConfig {
+
+  @Value("${bezkoder.openapi.dev-url}")
+  private String devUrl;
+
+  @Value("${bezkoder.openapi.prod-url}")
+  private String prodUrl;
+
+  @Bean
+  public OpenAPI myOpenAPI() {
+    Server devServer = new Server();
+    devServer.setUrl(devUrl);
+    devServer.setDescription("Server URL in Development environment");
+
+    Server prodServer = new Server();
+    prodServer.setUrl(prodUrl);
+    prodServer.setDescription("Server URL in Production environment");
+
+    Contact contact = new Contact();
+    contact.setEmail("bezkoder@gmail.com");
+    contact.setName("BezKoder");
+    contact.setUrl("https://www.bezkoder.com");
+
+    License mitLicense = new License().name("MIT License").url("https://choosealicense.com/licenses/mit/");
+
+    Info info = new Info()
+        .title("Tutorial Management API")
+        .version("1.0")
+        .contact(contact)
+        .description("This API exposes endpoints to manage tutorials.").termsOfService("https://www.bezkoder.com/terms")
+        .license(mitLicense);
+
+    return new OpenAPI().info(info).servers(List.of(devServer, prodServer));
+  }
+}
+```
 
 ## 4. Run Spring Boot application
 ```
