@@ -480,7 +480,21 @@ public class OpenAPIConfig {
 ```
 
 ## 4. Run Spring Boot application
+
+We run the application in VSCode with the following command
+
 ```
 mvn spring-boot:run
 ```
 
+We navigate to the Swagger OpenAPI documentation: http://localhost:8080/swagger-ui/index.html
+
+![image](https://github.com/luiscoco/spring-boot-sql-server-master/assets/32194879/be4f0eb0-2ce8-40f4-9546-16ded7f8b502)
+
+We can sent a GET request to see all the tutorials stored in the SQL Sever database
+
+![image](https://github.com/luiscoco/spring-boot-sql-server-master/assets/32194879/6b65f9b8-d201-4b67-a177-07d5e42c3ccd)
+
+We confirm with the information obtained from the database
+
+![image](https://github.com/luiscoco/spring-boot-sql-server-master/assets/32194879/866d38b8-9ccf-454a-b909-24001025a96a)
