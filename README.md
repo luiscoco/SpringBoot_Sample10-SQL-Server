@@ -23,6 +23,19 @@ Download and install SQL Server Management Studio (SSMS) from this site: https:/
 
 ![image](https://github.com/luiscoco/spring-boot-sql-server-master/assets/32194879/48ac3b8a-9a95-41b3-a446-942f73739d53)
 
+We create the database **bezkoder_db** and the table **tutorials**
+
+```sql
+CREATE DATABASE bezkoder_db
+GO
+
+CREATE TABLE tutorials (
+  id BIGINT IDENTITY(1,1) PRIMARY KEY,
+  title NVARCHAR(255),
+  description NVARCHAR(MAX),
+  published BIT
+);
+```
 
 ## 3. Source Code explanation
 
