@@ -487,6 +487,26 @@ We run the application in VSCode with the following command
 mvn spring-boot:run
 ```
 
+These are the application endpoints defined in the Controller
+
+Methods	Urls	           Actions
+
+POST	**/api/tutorials** create new Tutorial
+
+GET	**/api/tutorials** retrieve all Tutorials
+
+GET	**/api/tutorials/:id** retrieve a Tutorial by :id
+
+PUT	**/api/tutorials/:id** update a Tutorial by :id
+
+DELETE	**/api/tutorials/:id** delete a Tutorial by :id
+
+DELETE	**/api/tutorials** delete all Tutorials
+
+GET	**/api/tutorials/published** find all published Tutorials
+
+GET	**/api/tutorials?title=[keyword]** find all Tutorials which title contains keyword
+
 We navigate to the Swagger OpenAPI documentation: http://localhost:8080/swagger-ui/index.html
 
 ![image](https://github.com/luiscoco/spring-boot-sql-server-master/assets/32194879/be4f0eb0-2ce8-40f4-9546-16ded7f8b502)
